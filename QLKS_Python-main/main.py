@@ -40,10 +40,11 @@ def main():
                 print("Giá, diện tích, hoặc số giường không hợp lệ.")
                 continue
 
-            status = input("Tình trạng (available/booked): ").strip().lower()
-            if status not in ['available', 'booked']:
-                print("Tình trạng không hợp lệ.")
-                continue
+            while True:
+                status = input("Tình trạng (available/booked): ").strip().lower()
+                if status in ['available', 'booked']:
+                    break
+                print("Tình trạng không hợp lệ. Vui lòng nhập lại (available hoặc booked).")
 
             if room_type == "standard":
                 manager.addStandardRoom(rid, price, status, area, beds)
